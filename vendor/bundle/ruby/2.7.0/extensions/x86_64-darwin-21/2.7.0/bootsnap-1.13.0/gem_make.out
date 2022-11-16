@@ -1,0 +1,16 @@
+current directory: /Users/tanishikitomona/Desktop/booking/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.13.0/ext/bootsnap
+/Users/tanishikitomona/.rbenv/versions/2.7.6/bin/ruby -I /Users/tanishikitomona/.rbenv/versions/2.7.6/lib/ruby/2.7.0 -r ./siteconf20221115-16647-1bd5sd7.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tanishikitomona/Desktop/booking/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/tanishikitomona/Desktop/booking/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/tanishikitomona/Desktop/booking/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.13.0/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20221115-16647-w188ip/bootsnap
