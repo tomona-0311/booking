@@ -12,8 +12,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
   #   super
-  redirect_to: rooms
+
+
    end
+   def after_sign_up_path_for(resource)
+    flash[:notice] = "新規登録完了しました。次に名前を入力してください"
+    pages_home_path
+  end
+
 
   # GET /resource/edit
   # def edit
