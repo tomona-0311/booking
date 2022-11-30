@@ -9,4 +9,7 @@ class ApplicationController < ActionController::Base
     flash[:notice] = "新規登録完了しました。次に名前を入力してください"
     pages_home_path
   end
+  def after_sign_in_path_for(resource)
+    pages_home_path#遷移先のパス
+  end
 end

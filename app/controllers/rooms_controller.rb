@@ -20,9 +20,11 @@ class RoomsController < ApplicationController
         flash[:notice] = "登録できませんでした。もう一度入力してください"
         render "new"
       end
-
+    def show
+      @room=Room.find(params[:id])
+      @user = current_user
     end
-
+  end
 
 
 end

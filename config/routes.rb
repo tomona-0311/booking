@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
+  get 'users/account'
+  get 'users/profile'
   get 'rooms/new'
+  get 'rooms/show'
+  resources :users
   resources :rooms
 
   get 'pages/home'
