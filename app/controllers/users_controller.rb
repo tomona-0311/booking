@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     @user = current_user
   end
   def profile
- @user = User.find(params[:id])
+    @user = current_user
+
   end
   def update
     @user = User.find(params[:id])

@@ -7,20 +7,11 @@
                 <li class="active">
                     <%= link_to "アカウント",users_account_path %>
                 </li>
-
-
             </ul>
         </div>
 
-        <div class="col-md-10 user-view">
-            <div class="user-view-box">
-                <div class="update-content">
-                    <div class="row">
-                        <h5>アカウント</h5>
-                    </div>
-                </div>
 
-                <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+                <%= form_with model: @user, url: users_path,  class: 'new_user', local: true do |f| %>
 
                 <div class="update-content">
                     <div class="row">
@@ -39,7 +30,7 @@
 
                 <div class="update-content"></div>
                     <div class="row">
-                        <%= link_to "編集", edit_user_registration_path,class:"col-md-2 btn btn-primary mx-3"%>
+                        <%= link_to "編集", users_profile_path,class:"col-md-2 btn btn-primary mx-3"%>
                     </div>
                 </div>
 
