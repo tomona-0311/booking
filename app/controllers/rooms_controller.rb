@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
 
     def create
       @user = current_user
-      @room = Room.new(params.require(:room).permit(:room_name, :introduction,:price,:address,:image))
+      @room = Room.new(params.require(:room).permit(:room_name, :introduction,:price,:address,:image,:id))
       p 'ブレークポイントによって止まりました１'
 
       if @room.save
