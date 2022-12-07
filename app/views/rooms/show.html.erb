@@ -26,12 +26,12 @@
 
         <div class="col-md-4">
             <div class="room-show-nav">
-                <%= form_with model:@reservation, url:confirm_reservations_path(@room) do |f| %>
+                <%= form_with model:@room, url:rooms_show_path(@room) do |f| %>
                 <%= f.hidden_field :room_id, :value => @room.id %>
                 <%= f.hidden_field :user_id, :value => @user.id %>
 
                 <%= f.label :room_id ,"部屋ID"%>
-                <h5 class="price-icon"><%= @room.total %> / 日</h5>
+                <h5 class="price-icon"><%= @room.price %> / 日</h5>
 
                     <div class="room-show-date-select">
                         <%= f.label :room_id ,"部屋ID"%>

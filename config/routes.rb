@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'rooms/show'
   resources :users
   resources :rooms
-
+  resources :reservations
 
 
   get 'pages/home'

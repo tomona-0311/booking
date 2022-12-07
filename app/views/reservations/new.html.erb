@@ -1,63 +1,44 @@
 <div class="container-fiuld room-new">
 
-        <div class="col-md-10 room-view">
-            <div class="room-view-box">
-                <%= form_with model: @room do |f| %>
+       <div class="container reservations-new">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="reservations-new-nav">
+                <h4 class="reservations-new-check-content">予約内容確認</h4>
 
-                <div class="update-content">
-                    <div class="row">
-                        <h5>ルーム情報登録</h5>
-                    </div>
-                </div>
+                    <%= form_with model: @reservation do |f| %>
+                        <%= f.hidden_field :people %>
+                        <%= f.hidden_field :room_id %>
+                        <%= f.hidden_field :user_id %>
 
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.label :name,"ルーム名",class:"col-md-3 required-a" %>
-                        <%= f.text_field :name,placeholder:"ルーム名を入力", class:"form-control col-md-9 mb-4" %>
-                    </div>
+                        <h5 class="price-icon"><%= @room.price %> / 日 </h5>
 
-                </div>
+                        <div class="reservations-new-date-selsct">
 
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.label :introduction,"ルーム紹介",class:"col-md-3 required-a" %>
-                        <%= f.text_field :introduction,placeholder:"ルーム紹介を入力", class:"form-control col-md-9 mb-4" %>
-                    </div>
+                            <%= f.label :start_date ,"開始日" %><br>
+                            <%= f.hidden_field :start_date %>
+                            <%= f.text_field :start_date, class:"form-control col-md-9 mb-4",:readonly => true %>
+                            <%= f.label :end_date ,"終了日" %><br>
+                            <%= f.hidden_field :end_date %>
+                            <%= f.text_field :end_date, class:"form-control col-md-9 mb-4",:readonly => true %>
 
-                </div>
 
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.label :price,"料金",class:"col-md-3 required-a" %>
-                        <%= f.number_field :price,placeholder:"一日あたりの料金を入力", class:"form-control mb-4 col-md-9" %>
-                    </div>
+                            <h6 class="reservations-new-check-content">使用日数 : <%= @reservation.total_day %>日</h6>
+                            <%= f.hidden_field :total_day  %>
 
-                </div>
+                            <h6 class="reservations-new-check-content">人数 : <%= @reservation.people %>人</h6>
 
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.label :address,"住所",class:"col-md-3 required-a" %>
-                        <%= f.text_field :address,placeholder:"住所を入力", class:"form-control mb-4 col-md-9" %>
-                    </div>
+                            <%= f.label :total_price ,"合計金額" %><br>
+                            <%= f.hidden_field :total_price %>
+                            <%= f.text_field :total_price, class:"form-control col-md-9 mb-4",:readonly => true %>
+
+                            <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+
+                            <%= f.submit "予約を確定" ,class:"col-md-2 btn btn-primary my-3 form-control form-btn"%>
+                            <%= link_to "ルーム詳細に戻る",:back ,class:"btn btn-secondary form-control"%>
+                    <% end %>
 
                 </div>
-
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.label :image,"ルーム画像",class:"col-md-3 required-a" %>
-                        <%= f.file_field :image, class:"mb-4 col-md-9" %>
-                    </div>
-
-                </div>
-
-                <div class="update-content">
-                    <div class="row">
-                        <%= f.submit "登録" ,class:"col-md-2 btn btn-primary mx-3"%>
-                    </div>
-                </div>
-
-                <% end %>
-
             </div>
         </div>
     </div>
