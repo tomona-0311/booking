@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'rooms/new'
   get 'reservations/index'
   get 'users/account'
   get 'users/profile'
-  get 'rooms/new'
+
   get 'rooms/index'
   get 'rooms/show'
   resources :users

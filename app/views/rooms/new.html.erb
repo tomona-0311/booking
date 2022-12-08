@@ -12,7 +12,7 @@
 
         <div class="col-md-10 room-view">
             <div class="room-view-box">
-                <%= form_with model: @room do |f| %>
+                <%= form_with model: @room, local: true do |f| %>
 
 
                 <div class="update-content">
@@ -56,7 +56,7 @@
                 <div class="update-content">
                     <div class="row">
                         <%= f.label :image,"ルーム画像",class:"col-md-3 required-a" %>
-                        <%= f.file_field :image, class:"mb-4 col-md-9 field_wieth_error" %>
+                        <%= f.file_field :image %>
                     </div>
 
                 </div>

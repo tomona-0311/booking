@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
     def index
 
       @rooms = Room.all
+      @user = current_user
 
     end
     def  post
@@ -10,31 +11,30 @@ class RoomsController < ApplicationController
 
     end
     def new
-
+      @user = current_user
       @room = Room.new
     end
 
     def create
       @user = current_user
-      @room = Room.new(params.require(:room).permit(:room_name, :introduction,:price,:address,:image,:id))
+      @room = Room.create!(room_params)
       p 'ブレークポイントによって止まりました１'
 
       if @room.save
-        p 'ブレークポイントによって止まりました２'
-        binding.pry
-        redirect_to :reservations_new ,notice: "ルーム情報を新規登録しました"
-        p 'ブレークポイントによって止まりました３'
-
-     else      render "new"
-      p 'ブレークポイントによって止まりました４'
-
+        p 'ブレークポイントによって止まりました2'
+        redirect_to :rooms ,notice: "ルーム情報を新規登録しました"
+     else
+       render "new"
      end
-     end
+   end
+
+
 
     def show
       @room = Room.find(params[:id])
       @user = current_user
     end
+
     def update
       @user = current_user
       if @user.update(params.require(:room).permit(:room_name, :introduction,:price,:address,:image,:id))
@@ -43,9 +43,10 @@ class RoomsController < ApplicationController
       else
         render "show"
       end
-      def room_param
-        params.require(:room).permit(:content, :image).merge(user_id: current_user.id)
-      end
+    end
+    private
+    def room_params
+      params.require(:room).permit(:room_name, :introduction,:price,:address,:image)
     end
   end
 
