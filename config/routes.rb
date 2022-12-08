@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/account'
   get 'users/profile'
   get 'rooms/new'
+  get 'rooms/index'
   get 'rooms/show'
   resources :users
   resources :rooms

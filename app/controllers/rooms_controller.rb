@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
 
     def index
+
       @rooms = Room.all
 
     end
@@ -20,8 +21,8 @@ class RoomsController < ApplicationController
 
       if @room.save
         p 'ブレークポイントによって止まりました２'
-
-        redirect_to :rooms_new ,notice: "ルーム情報を新規登録しました"
+        binding.pry
+        redirect_to :reservations_new ,notice: "ルーム情報を新規登録しました"
         p 'ブレークポイントによって止まりました３'
 
      else      render "new"
@@ -41,6 +42,9 @@ class RoomsController < ApplicationController
         redirect_to :rooms_new
       else
         render "show"
+      end
+      def room_param
+        params.require(:room).permit(:content, :image).merge(user_id: current_user.id)
       end
     end
   end

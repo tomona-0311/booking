@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   def  new
      @user= current_user
 
-     @room=Room.find(params[:room_id])
+     @room = Room.find(params[:id])
      binding.pry
      @reservation = Reservation.new
 
