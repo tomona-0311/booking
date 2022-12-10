@@ -1,10 +1,11 @@
 <div class="container room-show">
     <div class="row">
         <div class="col-md-8">
-
+<% if @room.image.attached? %>
+  <%= image_tag @room.image %>
+<% end %>
             <div class="room-show-detile">
                 <div class="room-show-detile-icon">
-
                      <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon.jpg" class="host-icon">
 
                 </div>
@@ -18,7 +19,7 @@
                     </p>
                 </div>
             </div>
-
+</div>
             <p class="room-show-detile-content">
                 <%= @room.introduction %>
             </p>
@@ -27,6 +28,7 @@
         <div class="col-md-4">
             <div class="room-show-nav">
                 <%= form_with model:@room, url:rooms_show_path(@room) do |f| %>
+
                 <%= f.hidden_field :room_id, :value => @room.id %>
                 <%= f.hidden_field :user_id, :value => @user.id %>
 

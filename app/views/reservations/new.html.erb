@@ -6,7 +6,7 @@
             <div class="reservations-new-nav">
                 <h4 class="reservations-new-check-content">予約内容確認</h4>
 
-                    <%= form_with model: @reservation do |f| %>
+                    <%= form_with model: @room do |f| %>
                         <%= f.hidden_field :people %>
                         <%= f.hidden_field :room_id %>
                         <%= f.hidden_field :user_id %>
@@ -23,10 +23,10 @@
                             <%= f.text_field :end_date, class:"form-control col-md-9 mb-4",:readonly => true %>
 
 
-                            <h6 class="reservations-new-check-content">使用日数 : <%= @reservation.total_day %>日</h6>
+                            <h6 class="reservations-new-check-content">使用日数 : <%= @room.total_day %>日</h6>
                             <%= f.hidden_field :total_day  %>
 
-                            <h6 class="reservations-new-check-content">人数 : <%= @reservation.people %>人</h6>
+                            <h6 class="reservations-new-check-content">人数 : <%= @room.people %>人</h6>
 
                             <%= f.label :total_price ,"合計金額" %><br>
                             <%= f.hidden_field :total_price %>

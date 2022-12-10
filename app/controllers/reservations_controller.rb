@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
 
     end
     def create
-      @reservation = Reservation.new(params.require(:reservation).permit(:room_id,:user_id,:start_date,:end_date,:price,:total_price,:people,:total_day))
+      @reservation = Reservation.create(params(reservation_params))
       if params[:back] || !@reservation.save
         render "index"
       else
