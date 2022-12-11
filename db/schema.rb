@@ -58,11 +58,17 @@ ActiveRecord::Schema.define(version: 2022_12_07_011934) do
     t.integer "price"
     t.string "address"
     t.string "image"
+    t.integer "people"
+    t.integer "room_id"
+    t.integer "user_id"
+    t.integer "start_date"
+    t.integer "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "people"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
