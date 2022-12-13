@@ -36,16 +36,7 @@ class RoomsController < ApplicationController
       @reservations = Reservation.new
     end
 
-    def update
-      @user = current_user
-      @room = Room.create!(room_params)
 
-      if @room.update(params.require(:room).permit(:room_name, :introduction,:price,:address,:image,:id,:people,:room_id,:user_id,:start_date, :end_date))
-        flash[:notice] = "スケジュールの予約「#{@room.id}」の情報を更新しました"
-        redirect_to :new_room_reservation_path
-        render "show"
-      end
-    end
     private
     def room_params
       params.require(:room).permit(:room_name, :introduction,:price,:address,:image)

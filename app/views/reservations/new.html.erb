@@ -17,13 +17,13 @@
 
                             <%= f.label :start_date ,"開始日" %><br>
                             <%= f.hidden_field :start_date %>
-                            <%= f.text_field :start_date, class:"form-control col-md-9 mb-4",:readonly => true %>
+                            <%= f.text_field :start_date, class:"form-control col-md-9 mb-4",:readonly => true %><br>
                             <%= f.label :end_date ,"終了日" %><br>
                             <%= f.hidden_field :end_date %>
                             <%= f.text_field :end_date, class:"form-control col-md-9 mb-4",:readonly => true %>
 
 
-                            <h6 class="reservations-new-check-content">使用日数 : <%= @room.total_day %>日</h6>
+                            <h6 class="reservations-new-check-content">使用日数 : 日</h6>
                             <%= f.hidden_field :total_day  %>
 
                             <h6 class="reservations-new-check-content">人数 : <%= @room.people %>人</h6>

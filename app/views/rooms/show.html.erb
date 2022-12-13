@@ -27,10 +27,11 @@
 
         <div class="col-md-4">
             <div class="room-show-nav">
-                <%= form_with model:@room, url:rooms_show_path(@room) do |f| %>
+         <%= form_with model: @reservation, method: :get, url: new_room_reservation_path(@room.id) do |f| %>
+         <!--(@room.id)はactioncontroller エラーで、missing required keys:room_idと記載があったため、(room_idが必要だけどないよっと言われている)roomのidをpshtに渡す必要があるため、roomのidで＠room_id　。
+         ちなみに、bookとroomのidが必要と言われれば、(@book, room.id)と記載 -->
 
                 <%= f.hidden_field :room_id, :value => @room.id %>
-                <%= f.hidden_field :user_id, :value => @user.id %>
 
                 <%= f.label :room_id ,"部屋ID"%>
                 <h5 class="price-icon"><%= @room.price %> / 日</h5>
