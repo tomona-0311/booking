@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'rooms/show'
   resources :users
   resources :rooms
+  resources :reservations
   resources :rooms do
     resources :reservations
   end

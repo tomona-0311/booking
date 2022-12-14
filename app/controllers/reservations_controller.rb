@@ -25,7 +25,7 @@ end
       @reservation = Reservation.new(params.require(:reservation).permit(:room_id,:user_id,:start_date,:end_date,:price,:total_price,:people,:total_day))
       if @reservation.save
         p 'reservationブレークポイントによって止まりました６'
-        render reservation_index
+        redirect_to  reservation/index
       else
         redirect_to  new_room_reservation_path(@reservation), notice: "予約が完了しました"
       end
