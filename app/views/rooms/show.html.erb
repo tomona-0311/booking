@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-8">
 <% if @room.image.attached? %>
-  <%= image_tag @room.image %>
+  <%= image_tag @room.image ,size: "300x250" %>
 <% end %>
             <div class="room-show-detile">
                 <div class="room-show-detile-icon">
@@ -12,15 +12,18 @@
 
                 <div class="room-show-profile">
                     <p class="room-show-profile-name">
+                    部屋の名前:
                         <%= @room.room_name %>
                     </p>
                     <p class="room-show-profile-address">
+                    場所：
                         <%= @room.address %>
                     </p>
                 </div>
             </div>
 </div>
             <p class="room-show-detile-content">
+            部屋の紹介：
                 <%= @room.introduction %>
             </p>
         </div>
@@ -34,11 +37,15 @@
                 <%= f.hidden_field :room_id, :value => @room.id %>
 
                 <%= f.label :room_id ,"部屋ID"%>
-                <h5 class="price-icon"><%= @room.price %> / 日</h5>
+                <h5 class="price-icon"><%= @room.price %> / １日（1泊の金額）</h5>
+                <!--　一泊の金額 -->
 
                     <div class="room-show-date-select">
                         <%= f.label :room_id ,"部屋ID"%>
-                        <p><%= @room.id%></p> <br>
+                        <p><%= @room.id%>/ID</p> <br>
+
+
+
 
                         <%= f.label :start_date ,"開始日"%>
                         <%= f.date_field :start_date ,class:"form-control mb-4" %>

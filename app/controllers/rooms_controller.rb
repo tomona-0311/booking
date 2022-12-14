@@ -32,8 +32,11 @@ class RoomsController < ApplicationController
 
     def show
       @room = Room.find(params[:id])
+      p 'roomブレークポイントによって止まりました１'
       @user = current_user
-      @reservations = Reservation.new
+      p 'roomブレークポイントによって止まりました2'
+      @reservation = Reservation.new
+      p 'roomブレークポイントによって止まりました３'
     end
 
 
