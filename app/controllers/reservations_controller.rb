@@ -27,7 +27,7 @@ end
         p 'reservationブレークポイントによって止まりました６'
         redirect_to  reservation/index
       else
-        redirect_to  new_room_reservation_path(@reservation), notice: "予約が完了しました"
+        redirect_to  new_reservation_path(@reservation,room_id), notice: "予約が完了しました"
       end
     end
 
