@@ -1,15 +1,14 @@
 class RoomsController < ApplicationController
 
     def index
-
       @rooms = Room.all
       @user = current_user
-
     end
+
     def  post
       @rooms = Room.all
-
     end
+
     def new
       @user = current_user
       @room = Room.new
@@ -19,7 +18,6 @@ class RoomsController < ApplicationController
       @user = current_user
       @room = Room.create!(room_params)
       p 'ブレークポイントによって止まりました１'
-
       if @room.save
         p 'ブレークポイントによって止まりました2'
         redirect_to :rooms ,notice: "ルーム情報を新規登録しました"
@@ -27,8 +25,6 @@ class RoomsController < ApplicationController
        render "new"
      end
    end
-
-
 
     def show
       @room = Room.find(params[:id])
@@ -38,7 +34,6 @@ class RoomsController < ApplicationController
       @reservation = Reservation.new
       p 'roomブレークポイントによって止まりました３'
     end
-
 
     private
     def room_params
