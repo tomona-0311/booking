@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'rooms/new'
+  get 'rooms/serch'
   get 'reservations/index'
   get 'users/account'
   get 'users/profile'

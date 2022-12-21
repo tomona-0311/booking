@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
       p 'ブレークポイントによって止まりました１'
       if @room.save
         p 'ブレークポイントによって止まりました2'
-        redirect_to :rooms ,notice: "ルーム情報を新規登録しました"
+        redirect_to controller: :rooms, action: :show, id:1
      else
        render "new"
      end
@@ -34,6 +34,11 @@ class RoomsController < ApplicationController
       @reservation = Reservation.new
       p 'roomブレークポイントによって止まりました３'
     end
+
+    def serch
+
+    end
+
 
     private
     def room_params

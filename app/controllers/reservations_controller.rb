@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
      def index
-
+      @reservations = Reservation.all
+      @rooms = Room.all
      end
 
     def new
@@ -18,23 +19,34 @@ class ReservationsController < ApplicationController
        end
 
     def create
+
       @user = current_user
       @room = Room.find(params[:reservation][:room_id])
       p 'reservationブレークポイントによって止まりました5'
       @reservation = Reservation.new(params.require(:reservation).permit(:people,:room_id,:user_id,:total_day,:start_date,:end_date,:total_price))
-      p 'reservationブレークポイントによって止まりました６'
-      binding.pry
-      if @reservation.save
-        binding.pry
+      p 'reservationブレークポイントによって止まりました6'
+
+
+
+      if @reservation.save!
+
         p 'reservationブレークポイントによって止まりました7'
-        redirect_to  :room_reservation_path, notice: "予約が完了しました"
+        redirect_to  :reservations, notice: "予約が完了しました"
       else
-        binding.pry
-        redirect_to :reservations
+
+        render "new"
         p 'reservationブレークポイントによって止まりました8'
 
       end
     end
+    def show
+      @user = current_user
+      @room = Room.find(params[:id])
+      @reservation = Reservation.find(params[:id])
+
+    end
+
+
 
     private
   def reservation_params
