@@ -31,7 +31,7 @@ class ReservationsController < ApplicationController
       if @reservation.save!
 
         p 'reservationブレークポイントによって止まりました7'
-        redirect_to  :reservations, notice: "予約が完了しました"
+        redirect_to @reservation, notice: "予約が完了しました"
       else
 
         render "new"
@@ -45,6 +45,7 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.find(params[:id])
 
     end
+
 
 
 

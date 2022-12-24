@@ -10,13 +10,13 @@
 
         <a href="/"><img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"></a>
         <form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get">
-        <div class="header-sharch d-lg-inline-block d-none">
+
           <input type="text" name="area" id="area" value="" class="form-control" placeholder="エリア">
           <i class="fas fa-map-marker-alt"></i>
 
 
           <input type="text" name="keyword" id="keyword" value="" class="form-control" placeholder="キーワード">
-        <input type="submit" name="commit" value="" class="d-none" data-disable-with="">
+        <input type="submit" name="commit" value="" class="d-none" data-disable-with="探す">
 </form>
 
      <a class="btn btn-primary my-2 mx-3" href="/users/sign_in">ログイン</a>
@@ -39,7 +39,11 @@
                             <input type="text" name="area" id="area" value="" class="form-control mb-4" placeholder="東京">
                             <input type="submit" name="commit" value="探す" class="form-control btn-primary mb-4" data-disable-with="探す">
 </form>
-
+<%= search_form_for  @q, url: rooms_home_path do |f| %>
+ <%= f.label :address_cont, '場所の検索' %>
+  <%= f.search_field :address_cont %>
+  <%= f.submit '検索', class: "btn" %>
+<%end%>
             <h1 class="section-title">おすすめのエリア</h1>
 
                     <span>東京</span>

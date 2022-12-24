@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :set_q, only: [:home, :serch]
 
     def index
       @rooms = Room.all
@@ -20,27 +21,34 @@ class RoomsController < ApplicationController
       p 'ブレークポイントによって止まりました１'
       if @room.save
         p 'ブレークポイントによって止まりました2'
-        redirect_to controller: :rooms, action: :show, id:1
+        redirect_to @room #＠roomとすることでDBから取得したデータを指定すると、そのコントローラーのshowアクションに該当するページに遷移する。「redirect_to パラメータ」
      else
        render "new"
      end
    end
+   def serch
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
+  end
+  def home
+    @result = @q.result
 
+  end
     def show
       @room = Room.find(params[:id])
-      p 'roomブレークポイントによって止まりました１'
       @user = current_user
-      p 'roomブレークポイントによって止まりました2'
       @reservation = Reservation.new
-      p 'roomブレークポイントによって止まりました３'
-    end
-
-    def serch
 
     end
+
+
 
 
     private
+    def  set_q
+      @q = Room.ransack(params[:q])
+    end
+
     def room_params
       params.require(:room).permit(:room_name, :introduction,:price,:address,:image)
     end

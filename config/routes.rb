@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'rooms/new'
-  get 'rooms/serch'
+  resources :rooms do
+    collection do
+      get 'serch'
+    end
+  end
+  get 'rooms/home'
   get 'reservations/index'
   get 'users/account'
   get 'users/profile'
+
 
   get 'rooms/index'
   get 'rooms/show'
