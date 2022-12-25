@@ -1,5 +1,13 @@
 class PagesController < ApplicationController
   def home
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
+    @user = current_user
 
-  end
+    end
+    private
+    def  set_q
+
+      @q = Room.ransack(params[:q])
+    end
 end

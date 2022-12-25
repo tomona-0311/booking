@@ -29,15 +29,21 @@ class RoomsController < ApplicationController
    def serch
     @q = Room.ransack(params[:q])
     @rooms = @q.result(distinct: true)
+    @user = current_user
+
+
   end
   def home
-    @result = @q.result
+
+    @room = @q.result
+    @user = current_user
 
   end
     def show
-      @room = Room.find(params[:id])
+
       @user = current_user
       @reservation = Reservation.new
+      @room = Room.find(params[:id])
 
     end
 
@@ -46,6 +52,7 @@ class RoomsController < ApplicationController
 
     private
     def  set_q
+
       @q = Room.ransack(params[:q])
     end
 
