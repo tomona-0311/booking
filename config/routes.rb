@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   get 'users/account'
   get 'users/profile'
-  get 'pages/home'
+
   get 'rooms/home'
 
   devise_for :users
+  get 'pages/home'
   get 'rooms/new'
   get 'reservations/index'
   get 'rooms/index'
+  get 'users/login'
 
 
   resources :rooms do

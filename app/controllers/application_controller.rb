@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     pages_home_path#遷移先のパス
   end
+  def destroy
+    log_out
+    redirect_to pages/home_url
+  end
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
 end

@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     @user = current_user
 
   end
+  def login
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
+    @user = current_user
+
+    end
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:image, :name ,:profile))
