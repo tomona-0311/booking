@@ -13,19 +13,35 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-  <ul class="g_navi">
-<li><a href = "#">アイコン</a></li>
+
+   <a href="/users/login"><img alt="サイトのロゴ画像" src=https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png></a>
+
+
+  <ul class = "head">
+  <li><a href = "/users/login">
+<% if @user.image.attached? %>
+         <%= image_tag @user.image,class:"icon-image host-icon" ,size: "50x50" %>
+         <% else %>
+         <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"  alt='アイコン画像' class="icon-image host-icon" width="100" height="100" >
+        <% end %></li></a>
+        <%= @user.name %>
 <ul class="list_navi">
-<li class="list_navi"><a href = "/rooms/new">ルーム登録</a></li>
-<li class="list_navi"><a href = "/rooms/index">予約済みルーム一覧</a></li>
-<li class="list_navi"><a href = "/reservations/index">登録済みルーム一覧</a></li>
-<li class="list_navi"><a href = "/users/account" ,current_user>設定</a></li>
-<li class="list_navi"><a href = "/pages/home", method: :delete>ログアウト</a></li>
+<li class="menu_li"><%= link_to "ルーム登録", rooms_new_path %></li>
+<li class="menu_li"><%= link_to "予約済みルーム一覧", reservations_path %></li>
+<li class="menu_li"><%= link_to "登録済みルーム一覧",rooms_path%></li>
+<li class="menu_li"><%= link_to "設定", users_account_path %></li>
+<li class="menu_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+
 </ul>
 </li>
 </ul>
+
 </header>
   <body>
     <%= yield %>
   </body>
+  <br>
+  <footer>
+  2022.予約サイト
+  </footer>
 </html>

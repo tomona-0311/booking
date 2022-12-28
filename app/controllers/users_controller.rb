@@ -19,10 +19,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:image, :name ,:profile))
       flash[:notice]="更新しました"
-      redirect_to :user_profile
+      redirect_back(fallback_location: users_profile_path)
     else
       flash.now[:notice]="更新に失敗してしまいました、再入力してください"
-      redirect_to :user_profile
+      redirect_back(fallback_location: users_profile_path)
     end
 end
 end

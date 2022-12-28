@@ -2,10 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
    before_action :configure_sign_in_params, only: [:create]
-   def destroy
-    log_out
-    redirect_to pages/home_url
-  end
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -15,7 +12,10 @@ class Users::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
-
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました"
+    pages_home_path
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super

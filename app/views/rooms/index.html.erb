@@ -1,22 +1,26 @@
 <h2>登録済みルーム一覧</h2>
 <table>
 <thead>
+
+<div class = "inner">
 <tr>
+
 <th>ルーム画像</th>
 <th>ルーム名</th>
 <th>ルーム紹介</th>
 <th>料金</th>
 <th>作成日</th>
 
-
 </tr>
+</div>
+
 </thead>
 <tbody>
 
 <% @rooms. each do |room| %>
 
 <tr>
-<td># ファイルをモデルから指定する場合
+<td>
 
 <!-- <%= image_tag 'image.jpg' %>
 <img src="./image.jpg" width='50%' height='100%'> -->
@@ -24,8 +28,8 @@
 
 
 
-
-<td><%= room.room_name %> </td>
+<div class = "name">
+<td><%= link_to "#{room.room_name}", {controller: 'rooms', action: 'show', id: room.id} %> </td></div>
 <td> <%= room.introduction %></td>
 <td> <%= room.price %> </td>
 <td> <%= room.created_at%></td>

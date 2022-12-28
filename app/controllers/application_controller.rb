@@ -8,17 +8,13 @@ class ApplicationController < ActionController::Base
   end
   def after_sign_up_path_for(resource)
     flash[:notice] = "新規登録完了しました。次に名前を入力してください"
-    pages_home_path
+    users_login_path
   end
   def after_sign_in_path_for(resource)
-    pages_home_path#遷移先のパス
+    users_login_path#遷移先のパス
   end
-  def destroy
-    log_out
-    redirect_to pages/home_url
+  def after_sign_out_path_for(resource)
+   pages_home_path # ログアウト後に遷移するpathを設定
   end
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
+
 end

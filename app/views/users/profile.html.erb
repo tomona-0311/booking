@@ -30,9 +30,10 @@
                             <div class="icon-box">
 
                                 <% if @user.image.attached? %>
-                                    <%= image_tag @user.image,class:"icon-image host-icon"%>
+                                    <%= image_tag @user.image,class:"icon-image host-icon" ,size: "300x250" %>
+
                                 <% else %>
-                                    <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"  alt='アイコン画像' class="icon-image host-icon">
+                                    <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"  alt='アイコン画像' class="icon-image host-icon" width="100" height="100" >
                                 <% end %>
 
                             </div>
@@ -44,7 +45,7 @@
                     <div class="row">
                        <th>アイコン画像</th>
 
-                        <%= f.file_field :image,class:"mb-4 col-md-9" %>
+                        <%= f.file_field :image,class:"mb-4 col-md-9"  %>
                     </div>
 
                 </div>

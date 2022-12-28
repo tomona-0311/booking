@@ -9,8 +9,11 @@
                         <%= search_form_for  @q, url: rooms_home_path do |f| %>
  <%= f.label :address_cont, '場所の検索' %>
   <%= f.search_field :address_cont %>
-  <%= f.submit '検索', class: "btn" %>
-<%end%>
+  <%= f.submit '検索', class: "btn" %><br>
+  <%= f.label :room_name_cont, 'キーワード検索' %>
+                     <%=f.search_field :room_name_or_address_or_price_cont, placeholder: "キーワード検索"%>
+                     <%= f.submit '検索', class: "btn" %>
+
                     </div>
                 </div>
             </div>
@@ -22,12 +25,16 @@
             <h1 class="section-title">おすすめのエリア</h1>
             <div class="row">
                 <div class="panel-item col-lg-lg-3 col-6">
-                    <span>東京</span>
+
+                      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"),rooms_home_path(address:"東京")%>
+
                     <div class="shadow"></div>
                 </div>
 
                 <div class="panel-item col-lg-lg-3 col-6">
                     <span>大阪</span>
+                    <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"),f:{address_cont: '大阪'}%>
+
                     <div class="shadow"></div>
                 </div>
 
@@ -47,3 +54,4 @@
         </div>
 
     </div>
+    <%end%>

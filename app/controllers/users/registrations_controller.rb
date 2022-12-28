@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    end
    def after_sign_up_path_for(resource)
     flash[:notice] = "新規登録完了しました。次に名前を入力してください"
-    pages_home_path
+    rooms_home_path
   end
 
 
