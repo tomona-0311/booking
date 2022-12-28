@@ -32,7 +32,7 @@
 <td><%= link_to "#{room.room_name}", {controller: 'rooms', action: 'show', id: room.id} %> </td></div>
 <td> <%= room.introduction %></td>
 <td> <%= room.price %> </td>
-<td> <%= room.created_at%></td>
+<td> <%= room.created_at.to_s(:datetime_jp) %></td>
 <tr>
 <% end %>
 </tbody>
