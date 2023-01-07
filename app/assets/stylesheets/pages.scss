@@ -227,6 +227,7 @@ user agent stylesheet
     margin-right: auto;
     margin-left: auto;
 }
+
 .m-5 {
   margin: 3rem!important;
 }
@@ -337,6 +338,14 @@ img {
     font-size: 18px;
 }
 
+.row3{
+  display: flex;
+    width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 0px;
+}
  .row02 {
    
     display: -ms-flexbox;
@@ -353,4 +362,10 @@ width: 50%;
 }
 .btn btn-secondary form-control {
   text-align: center;
+}
+.sutart{
+  display: flex;
+}
+.row{
+  display: flex;
 }
