@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+   before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -12,7 +12,10 @@ class Users::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
-
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました"
+    pages_home_path
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super
